@@ -1,5 +1,5 @@
-import { Action } from '~/actions/counter'
-import { INCREMENT, DECREMENT } from '~/actions/constants'
+import { Action } from '~/actions'
+import { INCREMENT, DECREMENT, SET_COUNT } from '~/actions/constants'
 
 export const initialState = {
     count: 0,
@@ -19,6 +19,12 @@ export function rootReducer(state: State = initialState, action: Action): State 
             return {
                 ...state,
                 count: state.count - 1,
+            }
+        }
+        case SET_COUNT: {
+            return {
+                ...state,
+                count: action.payload,
             }
         }
         default: {

@@ -1,11 +1,16 @@
-import { INCREMENT, DECREMENT } from '~/actions/constants'
+import { INCREMENT, DECREMENT, SET_COUNT } from '~/actions/constants'
 
-type IncrementAction = {
+export type IncrementAction = {
     type: typeof INCREMENT
 }
 
-type DecrementAction = {
+export type DecrementAction = {
     type: typeof DECREMENT
+}
+
+export type SetCountAction = {
+    type: typeof SET_COUNT
+    payload: number
 }
 
 export const increment = (): IncrementAction => ({
@@ -15,9 +20,8 @@ export const increment = (): IncrementAction => ({
 export const decrement = (): DecrementAction => ({
     type: DECREMENT,
 })
-export type Action =
-    | IncrementAction
-    | DecrementAction
-    | {
-          type: unknown
-      }
+
+export const setCount = (payload: number) => ({
+    type: SET_COUNT,
+    payload,
+})
