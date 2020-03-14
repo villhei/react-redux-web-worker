@@ -5,16 +5,18 @@ import { increment, decrement, setCount } from '~/actions/counter'
 
 type Props = {
     count: number
+    doubleCount: number
     increment: () => void
     decrement: () => void
     setCount: (value: number) => void
 }
 
 const Counter = (props: Props) => {
-    const { increment, decrement, setCount, count } = props
+    const { increment, decrement, setCount, count, doubleCount } = props
     return (
         <div>
-            Current count is {count}
+            <p>Current count is {count}</p>
+            <p>Double count is {doubleCount}</p>
             <br></br>
             <button onClick={increment}>➕</button>
             <button onClick={decrement}>➖</button>
@@ -26,6 +28,7 @@ const Counter = (props: Props) => {
 const mapStateToProps = (state: State) => {
     return {
         count: state.count,
+        doubleCount: state.doubleCount,
     }
 }
 
