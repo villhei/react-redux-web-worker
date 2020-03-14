@@ -14,7 +14,7 @@ function setState(payload: State): SetStateAction {
         payload,
     }
 }
-const stateReducer = (state = initialState, action: Action | SetStateAction): State => {
+const stateReducer = (state = initialState, action: SetStateAction | never): State => {
     if (action.type === '~/SET_STATE') {
         return action.payload
     }
